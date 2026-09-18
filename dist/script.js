@@ -121,6 +121,7 @@ function renderGallery() {
   if (!item) return;
   galleryImage.hidden = item.type !== 'image';
   galleryIframe.hidden = item.type !== 'iframe';
+  galleryFrame.classList.toggle('is-iframe', item.type === 'iframe');
   if (item.type === 'image') {
     // Keep the source aspect ratio so tall app screens remain fully visible.
     galleryImage.style.setProperty('width', 'auto', 'important');

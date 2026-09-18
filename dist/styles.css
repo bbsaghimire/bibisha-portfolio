@@ -188,6 +188,12 @@ body.gallery-open{overflow:hidden}
 /* UAX Landing: show the live prototype at full opacity and allow its own UI scroll. */
 .uax-visual iframe{inset:0!important;width:100%!important;height:100%!important;opacity:1!important;filter:none!important;transform:none!important;pointer-events:auto!important;background:#fff;border-radius:0}
 
+/* UAX Landing cover + full design viewer. */
+.project-wide .uax-visual{padding:0!important}
+.uax-visual iframe{inset:0!important;width:100%!important;height:100%!important;opacity:.18!important;filter:grayscale(.18)!important;pointer-events:none!important;transform:none!important;background:#fff;border-radius:0}
+.gallery-frame.is-iframe{padding:0;background:#fff;overflow:hidden}
+.gallery-frame.is-iframe iframe{display:block;width:100%;height:100%;pointer-events:auto;overflow:auto;background:#fff}
+
 /* Restore the centered, understated cover composition */
 .asset-mockup--cards .asset-screen:first-child,.asset-mockup--web.web-mockup .asset-screen:first-child{inset:12% 16%;width:68%;max-width:68%;height:76%;max-height:76%;margin:auto;border-radius:18px;opacity:.18;filter:grayscale(.12);transform:none!important}
 .uax-visual iframe{inset:12% 16%;width:68%;height:76%;opacity:.16!important;filter:grayscale(.45);border-radius:14px}
@@ -272,3 +278,9 @@ h1,h2,h3,.skill-row summary{letter-spacing:.015em}
 
 /* Final UAX Landing override: keep the live prototype visible and scrollable. */
 .uax-visual iframe{inset:0!important;width:100%!important;height:100%!important;opacity:1!important;filter:none!important;transform:none!important;pointer-events:auto!important;background:#fff;border-radius:0}
+
+/* Final UAX Landing cover + full viewer behavior. */
+.project-wide .uax-visual{padding:0!important}
+.uax-visual iframe{inset:0!important;width:100%!important;height:100%!important;opacity:.18!important;filter:grayscale(.18)!important;pointer-events:none!important;transform:none!important;background:#fff;border-radius:0}
+.gallery-frame.is-iframe{padding:0;background:#fff;overflow:hidden}
+.gallery-frame.is-iframe iframe{display:block;width:100%;height:100%;pointer-events:auto;overflow:auto;background:#fff}
