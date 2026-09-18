@@ -86,6 +86,23 @@ const galleryDots = document.querySelector('#gallery-dots');
 const galleryFrame = document.querySelector('.gallery-frame');
 const galleryState = { items: [], index: 0, title: '' };
 
+function fitGalleryImage() {
+  if (galleryImage.hidden || !galleryImage.naturalWidth || !galleryImage.naturalHeight) return;
+  const frameStyles = getComputedStyle(galleryFrame);
+  const availableWidth = galleryFrame.clientWidth - parseFloat(frameStyles.paddingLeft) - parseFloat(frameStyles.paddingRight);
+  const availableHeight = galleryFrame.clientHeight - parseFloat(frameStyles.paddingTop) - parseFloat(frameStyles.paddingBottom);
+  if (availableWidth <= 0 || availableHeight <= 0) return;
+  const ratio = galleryImage.naturalWidth / galleryImage.naturalHeight;
+  let width = availableWidth;
+  let height = width / ratio;
+  if (height > availableHeight) {
+    height = availableHeight;
+    width = height * ratio;
+  }
+  galleryImage.style.width = `${Math.floor(width)}px`;
+  galleryImage.style.height = `${Math.floor(height)}px`;
+}
+
 function galleryItems(card) {
   const images = [...card.querySelectorAll('.asset-screen img, .document-collage img')].map((image) => ({
     type: 'image',
@@ -113,6 +130,7 @@ function renderGallery() {
     galleryImage.onload = () => {
       galleryFrame.classList.toggle('is-portrait', galleryImage.naturalHeight > galleryImage.naturalWidth);
       galleryFrame.classList.toggle('is-landscape', galleryImage.naturalWidth >= galleryImage.naturalHeight);
+      fitGalleryImage();
     };
     galleryImage.alt = item.alt;
     galleryIframe.removeAttribute('src');
@@ -134,10 +152,11 @@ function openGallery(card) {
   galleryState.title = card.querySelector('h3')?.textContent.replace(/\s+/g, ' ').trim() || 'Project design';
   galleryTitle.textContent = galleryState.title;
   galleryKicker.textContent = card.querySelector('.project-meta span')?.textContent || 'SELECTED SCREENS';
-  renderGallery();
   galleryModal.classList.add('is-open');
   galleryModal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('gallery-open');
+  renderGallery();
+  requestAnimationFrame(fitGalleryImage);
 }
 
 function closeGallery() {
@@ -173,3 +192,4 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'ArrowLeft') galleryModal.querySelector('[data-gallery-prev]')?.click();
   if (event.key === 'ArrowRight') galleryModal.querySelector('[data-gallery-next]')?.click();
 });
+window.addEventListener('resize', fitGalleryImage);
