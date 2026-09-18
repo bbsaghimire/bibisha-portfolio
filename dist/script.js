@@ -99,8 +99,10 @@ function fitGalleryImage() {
     height = availableHeight;
     width = height * ratio;
   }
-  galleryImage.style.width = `${Math.floor(width)}px`;
-  galleryImage.style.height = `${Math.floor(height)}px`;
+  galleryImage.style.setProperty('width', `${Math.floor(width)}px`, 'important');
+  galleryImage.style.setProperty('height', `${Math.floor(height)}px`, 'important');
+  galleryImage.style.setProperty('max-width', `${Math.floor(availableWidth)}px`, 'important');
+  galleryImage.style.setProperty('max-height', `${Math.floor(availableHeight)}px`, 'important');
 }
 
 function galleryItems(card) {
@@ -121,10 +123,10 @@ function renderGallery() {
   galleryIframe.hidden = item.type !== 'iframe';
   if (item.type === 'image') {
     // Keep the source aspect ratio so tall app screens remain fully visible.
-    galleryImage.style.width = 'auto';
-    galleryImage.style.height = 'auto';
-    galleryImage.style.maxWidth = '100%';
-    galleryImage.style.maxHeight = '100%';
+    galleryImage.style.setProperty('width', 'auto', 'important');
+    galleryImage.style.setProperty('height', 'auto', 'important');
+    galleryImage.style.setProperty('max-width', '100%', 'important');
+    galleryImage.style.setProperty('max-height', '100%', 'important');
     galleryImage.style.objectFit = 'contain';
     galleryImage.style.objectPosition = 'center';
     galleryImage.onload = () => {
@@ -157,6 +159,8 @@ function openGallery(card) {
   document.body.classList.add('gallery-open');
   renderGallery();
   requestAnimationFrame(fitGalleryImage);
+  requestAnimationFrame(() => requestAnimationFrame(fitGalleryImage));
+  window.setTimeout(fitGalleryImage, 80);
 }
 
 function closeGallery() {
