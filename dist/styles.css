@@ -154,7 +154,7 @@ body.gallery-open{overflow:hidden}
 .workflow-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('/assets/projects/workflow/uax-workflow1.png')}
 .asset-mockup--cards .asset-mockup-stage,.asset-mockup--web.web-mockup .asset-mockup-stage,.uax-visual iframe{opacity:0}
 .gallery-frame img{width:auto;height:auto;max-width:86%;max-height:86%;object-fit:contain}
-.gallery-frame img{width:auto!important;height:auto!important;max-width:82%!important;max-height:78%!important;object-fit:contain!important;object-position:center}
+.gallery-frame img{width:auto!important;height:auto!important;max-width:84%!important;max-height:80%!important;object-fit:contain!important;object-position:center}
 .lumina-label{position:absolute;z-index:3;left:28px;top:25px;display:grid;gap:7px;color:var(--paper)}
 .lumina-label strong{font-family:var(--font-display);font-size:clamp(28px,4vw,58px);font-weight:400;letter-spacing:-.06em;line-height:.9}
 .lumina-label span{font-size:10px;letter-spacing:.16em;color:#aaa9a3}
@@ -174,4 +174,4 @@ body.gallery-open{overflow:hidden}
 @media(max-width:800px){.view-design{padding:13px 14px;font-size:9px}.asset-mockup--cards:after,.asset-mockup--web.web-mockup:after,.document-mockup:after,.uax-visual:after{left:18px;top:18px;font-size:8px}.gallery-dialog{height:calc(100vh - 32px);padding:18px}.gallery-stage{grid-template-columns:30px minmax(0,1fr) 30px}.gallery-frame{height:100%}.gallery-foot{padding-bottom:3px}}
 @media(max-width:800px){.document-mockup{height:auto;min-height:430px;padding:20px 14px}.pdf-list{grid-template-columns:1fr;gap:10px;align-content:center}.pdf-link{grid-template-columns:28px 1fr;gap:12px;padding:16px}.pdf-link strong{font-size:27px}.pdf-link i{grid-column:2}}
 @media(max-width:800px){.lumina-label{left:18px;top:20px}.lumina-label strong{font-size:32px}.lumina-cta{left:18px;right:auto;bottom:18px}.contact-card strong{font-size:clamp(21px,6.2vw,30px)}}
-@media(max-width:800px){.gallery-frame img{max-width:90%!important;max-height:78%!important}}
+@media(max-width:800px){.gallery-frame img{max-width:92%!important;max-height:80%!important}}
