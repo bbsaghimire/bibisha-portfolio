@@ -98,3 +98,23 @@ html{scroll-behavior:auto}
 .asset-mockup--web.web-mockup .asset-screen:nth-child(3){transform:translateY(18px) rotate(4deg)}
 .asset-mockup--web.web-mockup .asset-screen:hover{transform:translateY(-20px) rotate(0) scale(1.08);box-shadow:0 34px 60px rgba(0,0,0,.58)}
 @media(max-width:800px){.web-mockup{padding:16px}.web-mockup iframe{border-radius:10px;transform:none}.web-mockup:hover iframe{transform:translateY(-4px)}.asset-mockup--web.web-mockup{height:390px;padding:18px}.asset-mockup--web.web-mockup .asset-mockup-stage{gap:7px;padding:5px;transform:perspective(900px) rotateX(2deg) rotateZ(-2deg)}.asset-mockup--web.web-mockup .asset-screen{border-radius:7px}}
+
+/* Neutral app and document presentation */
+.asset-mockup--cards{background:linear-gradient(135deg,#222327 0%,#101114 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.13)}
+.neon-visual.asset-mockup--cards{background:linear-gradient(135deg,#29272d 0%,#111114 100%)}
+.violet-visual.asset-mockup--cards{background:linear-gradient(135deg,#27232b 0%,#101013 100%)}
+.green-visual.asset-mockup--cards{background:linear-gradient(135deg,#252a28 0%,#101211 100%)}
+.asset-mockup--cards .asset-screen{background:#08090b}
+.asset-mockup--cards .asset-screen img{object-fit:contain;background:#08090b}
+.project-wide .uax-visual{height:min(68vw,720px);min-height:560px;overflow:hidden}
+.uax-visual iframe{pointer-events:none;overflow:hidden}
+.document-mockup{height:500px;padding:36px;background:linear-gradient(135deg,#dedbd3 0%,#aaa9a3 100%);box-shadow:inset 0 0 0 1px rgba(17,17,17,.16)}
+.document-collage{height:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:18px;transform:rotate(-4deg) scale(1.04)}
+.document-collage figure{height:auto;aspect-ratio:16/9;margin:0;overflow:hidden;background:#f8f7f3;border:6px solid #f8f7f3;box-shadow:0 24px 38px rgba(17,17,17,.22);transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s ease}
+.document-collage figure:nth-child(1){transform:translateY(22px) rotate(-5deg)}
+.document-collage figure:nth-child(2){transform:translateY(-12px) rotate(2deg) scale(1.05);z-index:2}
+.document-collage figure:nth-child(3){transform:translateY(10px) rotate(-2deg)}
+.document-collage figure:nth-child(4){transform:translateY(-18px) rotate(5deg)}
+.document-collage figure:hover{z-index:5;transform:translateY(-18px) rotate(0) scale(1.08);box-shadow:0 32px 56px rgba(17,17,17,.3)}
+.document-collage img{display:block;width:100%;height:100%;object-fit:cover}
+@media(max-width:800px){.project-wide .uax-visual{height:min(130vw,600px);min-height:460px}.document-mockup{height:420px;padding:22px 14px}.document-collage{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;transform:rotate(-3deg) scale(1.02)}.document-collage figure{border-width:4px}.document-collage figure:nth-child(1){transform:translateY(10px) rotate(-4deg)}.document-collage figure:nth-child(2){transform:translateY(-8px) rotate(2deg) scale(1.04)}.document-collage figure:nth-child(3){transform:translateY(6px) rotate(-2deg)}.document-collage figure:nth-child(4){transform:translateY(-10px) rotate(4deg)}}
