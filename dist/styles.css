@@ -231,6 +231,9 @@ body.gallery-open{overflow:hidden}
 .asset-mockup--cards .view-design:hover,.asset-mockup--web.web-mockup .view-design:hover,.uax-visual .view-design:hover{transform:translate(-50%,-58%)}
 @media(max-width:800px){.asset-mockup--cards .asset-screen:first-child,.asset-mockup--web.web-mockup .asset-screen:first-child{inset:9% 8% auto auto;width:55%;max-width:55%;height:31%}.uax-visual iframe{inset:9% 8% auto auto;width:56%;height:31%}.asset-mockup--cards .view-design,.asset-mockup--web.web-mockup .view-design,.uax-visual .view-design{left:50%;top:58%;bottom:auto;transform:translate(-50%,-50%)}.asset-mockup--cards .view-design:hover,.asset-mockup--web.web-mockup .view-design:hover,.uax-visual .view-design:hover{transform:translate(-50%,-58%)}}
 
+/* Typography refinement: give every heading a calm, readable rhythm. */
+h1,h2,h3,.skill-row summary{letter-spacing:1px}
+
 /* One full-length cover image per project */
 .asset-mockup--cards:before,.asset-mockup--web.web-mockup:before{display:none}
 .asset-mockup--cards .asset-mockup-stage,.asset-mockup--web.web-mockup .asset-mockup-stage{position:absolute;inset:0;display:block!important;padding:0;opacity:1!important;filter:none!important;transform:none!important;z-index:1}
