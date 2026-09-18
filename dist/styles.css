@@ -34,6 +34,7 @@ html{scroll-behavior:auto}
 
 /* Supplied screen mockups */
 .wordmark{font-size:clamp(20px,2.4vw,36px);letter-spacing:-.075em}
+.wordmark{letter-spacing:1px}
 .hero-name{right:1vw;bottom:3vw;color:rgba(255,255,255,.075)}
 .asset-mockup{height:520px;padding:26px 18px 20px;border-radius:var(--radius);overflow:hidden;isolation:isolate}
 .asset-mockup-stage{height:100%;display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,1vw,14px);padding:18px 0 10px}
