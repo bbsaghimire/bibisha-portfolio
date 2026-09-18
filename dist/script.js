@@ -57,6 +57,24 @@ document.querySelectorAll('.project-visual').forEach((visual) => {
   }
 });
 
+const workFilters = document.querySelectorAll('.work-filter');
+const workCards = document.querySelectorAll('.project-card[data-kind]');
+workFilters.forEach((filterButton) => {
+  filterButton.addEventListener('click', () => {
+    const filter = filterButton.dataset.filter;
+    workFilters.forEach((button) => {
+      const active = button === filterButton;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', String(active));
+    });
+    workCards.forEach((card) => {
+      const shouldHide = filter !== 'all' && card.dataset.kind !== filter;
+      card.hidden = shouldHide;
+      card.classList.toggle('is-filtered', shouldHide);
+    });
+  });
+});
+
 const galleryModal = document.querySelector('#gallery-modal');
 const galleryImage = document.querySelector('#gallery-image');
 const galleryIframe = document.querySelector('#gallery-iframe');
