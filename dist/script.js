@@ -103,10 +103,11 @@ function renderGallery() {
   galleryImage.hidden = item.type !== 'image';
   galleryIframe.hidden = item.type !== 'iframe';
   if (item.type === 'image') {
-    galleryImage.style.width = '100%';
-    galleryImage.style.height = '100%';
-    galleryImage.style.maxWidth = 'none';
-    galleryImage.style.maxHeight = 'none';
+    // Keep the source aspect ratio so tall app screens remain fully visible.
+    galleryImage.style.width = 'auto';
+    galleryImage.style.height = 'auto';
+    galleryImage.style.maxWidth = '100%';
+    galleryImage.style.maxHeight = '100%';
     galleryImage.style.objectFit = 'contain';
     galleryImage.style.objectPosition = 'center';
     galleryImage.onload = () => {
