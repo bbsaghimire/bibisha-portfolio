@@ -232,7 +232,16 @@ body.gallery-open{overflow:hidden}
 @media(max-width:800px){.asset-mockup--cards .asset-screen:first-child,.asset-mockup--web.web-mockup .asset-screen:first-child{inset:9% 8% auto auto;width:55%;max-width:55%;height:31%}.uax-visual iframe{inset:9% 8% auto auto;width:56%;height:31%}.asset-mockup--cards .view-design,.asset-mockup--web.web-mockup .view-design,.uax-visual .view-design{left:50%;top:58%;bottom:auto;transform:translate(-50%,-50%)}.asset-mockup--cards .view-design:hover,.asset-mockup--web.web-mockup .view-design:hover,.uax-visual .view-design:hover{transform:translate(-50%,-58%)}}
 
 /* Typography refinement: give every heading a calm, readable rhythm. */
-h1,h2,h3,.skill-row summary{letter-spacing:1px}
+h1,h2,h3,.skill-row summary{letter-spacing:.015em}
+
+/* Typography refinement: open the display type without changing the layout. */
+.hero h1,.section-heading h2,.about h2,.contact h2,.project-title-row h3,.gallery-head h2,.skill-row summary,.lumina-word,.lumina-label strong,.contact-card strong,.pdf-link strong,.intent-manifesto p,.footer-main p{letter-spacing:.015em!important}
+
+/* Hero orbit: give each marker a soft, living glow while keeping the motion restrained. */
+.hero-orbit span{color:var(--blue);box-shadow:0 0 8px currentColor,0 0 20px currentColor;animation:heroBallGlow 2.8s ease-in-out infinite}
+.hero-orbit span:nth-child(2){color:var(--purple);animation-delay:-.9s}
+.hero-orbit span:nth-child(3){color:var(--paper);animation-delay:-1.8s}
+@keyframes heroBallGlow{0%,100%{opacity:.7;transform:scale(.82);box-shadow:0 0 7px currentColor,0 0 16px currentColor}50%{opacity:1;transform:scale(1.35);box-shadow:0 0 10px currentColor,0 0 28px currentColor,0 0 44px color-mix(in srgb,currentColor 38%,transparent)}}
 
 /* One full-length cover image per project */
 .asset-mockup--cards:before,.asset-mockup--web.web-mockup:before{display:none}
