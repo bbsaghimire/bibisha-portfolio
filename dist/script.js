@@ -56,3 +56,88 @@ document.querySelectorAll('.project-visual').forEach((visual) => {
     visual.addEventListener('pointerleave', () => { visual.style.transform = ''; });
   }
 });
+
+const galleryModal = document.querySelector('#gallery-modal');
+const galleryImage = document.querySelector('#gallery-image');
+const galleryIframe = document.querySelector('#gallery-iframe');
+const galleryTitle = document.querySelector('#gallery-title');
+const galleryKicker = document.querySelector('#gallery-kicker');
+const galleryCount = document.querySelector('#gallery-count');
+const galleryCaption = document.querySelector('#gallery-caption');
+const galleryDots = document.querySelector('#gallery-dots');
+const galleryState = { items: [], index: 0, title: '' };
+
+function galleryItems(card) {
+  const images = [...card.querySelectorAll('.asset-screen img, .document-collage img')].map((image) => ({
+    type: 'image',
+    src: image.currentSrc || image.src,
+    alt: image.alt
+  }));
+  const iframe = card.querySelector('iframe');
+  if (iframe) images.push({ type: 'iframe', src: iframe.dataset.src || iframe.src, alt: iframe.title || 'Project design preview' });
+  return images;
+}
+
+function renderGallery() {
+  const item = galleryState.items[galleryState.index];
+  if (!item) return;
+  galleryImage.hidden = item.type !== 'image';
+  galleryIframe.hidden = item.type !== 'iframe';
+  if (item.type === 'image') {
+    galleryImage.src = item.src;
+    galleryImage.alt = item.alt;
+    galleryIframe.removeAttribute('src');
+  } else {
+    galleryIframe.src = item.src;
+    galleryImage.removeAttribute('src');
+  }
+  galleryCount.textContent = `${String(galleryState.index + 1).padStart(2, '0')} / ${String(galleryState.items.length).padStart(2, '0')}`;
+  galleryCaption.textContent = item.alt;
+  galleryDots.innerHTML = galleryState.items.map((_, index) => `<button class="gallery-dot${index === galleryState.index ? ' is-active' : ''}" type="button" data-gallery-index="${index}" aria-label="View screen ${index + 1}"></button>`).join('');
+}
+
+function openGallery(card) {
+  galleryState.items = galleryItems(card);
+  galleryState.index = 0;
+  galleryState.title = card.querySelector('h3')?.textContent.replace(/\s+/g, ' ').trim() || 'Project design';
+  galleryTitle.textContent = galleryState.title;
+  galleryKicker.textContent = card.querySelector('.project-meta span')?.textContent || 'SELECTED SCREENS';
+  renderGallery();
+  galleryModal.classList.add('is-open');
+  galleryModal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('gallery-open');
+}
+
+function closeGallery() {
+  galleryModal.classList.remove('is-open');
+  galleryModal.setAttribute('aria-hidden', 'true');
+  galleryIframe.removeAttribute('src');
+  document.body.classList.remove('gallery-open');
+}
+
+document.querySelectorAll('.project-card[data-gallery] .view-design').forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    event.stopPropagation();
+    openGallery(trigger.closest('.project-card'));
+  });
+});
+
+galleryModal?.querySelectorAll('.gallery-close, .gallery-backdrop').forEach((trigger) => trigger.addEventListener('click', closeGallery));
+galleryModal?.querySelector('[data-gallery-prev]')?.addEventListener('click', () => {
+  galleryState.index = (galleryState.index - 1 + galleryState.items.length) % galleryState.items.length;
+  renderGallery();
+});
+galleryModal?.querySelector('[data-gallery-next]')?.addEventListener('click', () => {
+  galleryState.index = (galleryState.index + 1) % galleryState.items.length;
+  renderGallery();
+});
+galleryDots?.addEventListener('click', (event) => {
+  const dot = event.target.closest('[data-gallery-index]');
+  if (dot) { galleryState.index = Number(dot.dataset.galleryIndex); renderGallery(); }
+});
+document.addEventListener('keydown', (event) => {
+  if (!galleryModal?.classList.contains('is-open')) return;
+  if (event.key === 'Escape') closeGallery();
+  if (event.key === 'ArrowLeft') galleryModal.querySelector('[data-gallery-prev]')?.click();
+  if (event.key === 'ArrowRight') galleryModal.querySelector('[data-gallery-next]')?.click();
+});
