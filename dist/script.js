@@ -103,6 +103,12 @@ function renderGallery() {
   galleryImage.hidden = item.type !== 'image';
   galleryIframe.hidden = item.type !== 'iframe';
   if (item.type === 'image') {
+    galleryImage.style.width = '100%';
+    galleryImage.style.height = '100%';
+    galleryImage.style.maxWidth = 'none';
+    galleryImage.style.maxHeight = 'none';
+    galleryImage.style.objectFit = 'contain';
+    galleryImage.style.objectPosition = 'center';
     galleryImage.onload = () => {
       galleryFrame.classList.toggle('is-portrait', galleryImage.naturalHeight > galleryImage.naturalWidth);
       galleryFrame.classList.toggle('is-landscape', galleryImage.naturalWidth >= galleryImage.naturalHeight);
