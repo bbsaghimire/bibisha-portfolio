@@ -147,11 +147,11 @@ body.gallery-open{overflow:hidden}
 .document-mockup{height:500px;padding:30px;background:linear-gradient(135deg,#242424 0%,#111 100%)!important}
 .document-mockup:after{display:none}
 .asset-mockup--cards:before,.asset-mockup--web.web-mockup:before,.uax-visual:before{content:"";position:absolute;inset:0;z-index:0;display:block;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:.2;filter:blur(1px) grayscale(.15);transform:scale(1.03);pointer-events:none}
-.purple-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.78),rgba(12,12,14,.36)),url('/assets/projects/notion/notion1.png')}
-.neon-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('/assets/projects/usdt/usdti1.png')}
-.violet-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('/assets/projects/wallet/uax-wallet-app1.png')}
-.green-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('/assets/projects/sunstake/sunstake1.png')}
-.workflow-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('/assets/projects/workflow/uax-workflow1.png')}
+.purple-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.78),rgba(12,12,14,.36)),url('./assets/projects/notion/notion1.png')}
+.neon-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('./assets/projects/usdt/usdti1.png')}
+.violet-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('./assets/projects/wallet/uax-wallet-app1.png')}
+.green-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('./assets/projects/sunstake/sunstake1.png')}
+.workflow-visual:before{background-image:linear-gradient(120deg,rgba(12,12,14,.82),rgba(12,12,14,.38)),url('./assets/projects/workflow/uax-workflow1.png')}
 .asset-mockup--cards .asset-mockup-stage,.asset-mockup--web.web-mockup .asset-mockup-stage,.uax-visual iframe{opacity:0}
 .gallery-frame img{width:auto;height:auto;max-width:86%;max-height:86%;object-fit:contain}
 .gallery-frame img{width:auto!important;height:auto!important;max-width:84%!important;max-height:80%!important;object-fit:contain!important;object-position:center}
