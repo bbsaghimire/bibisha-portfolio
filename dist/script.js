@@ -65,6 +65,7 @@ const galleryKicker = document.querySelector('#gallery-kicker');
 const galleryCount = document.querySelector('#gallery-count');
 const galleryCaption = document.querySelector('#gallery-caption');
 const galleryDots = document.querySelector('#gallery-dots');
+const galleryFrame = document.querySelector('.gallery-frame');
 const galleryState = { items: [], index: 0, title: '' };
 
 function galleryItems(card) {
@@ -84,12 +85,18 @@ function renderGallery() {
   galleryImage.hidden = item.type !== 'image';
   galleryIframe.hidden = item.type !== 'iframe';
   if (item.type === 'image') {
-    galleryImage.src = item.src;
+    galleryImage.onload = () => {
+      galleryFrame.classList.toggle('is-portrait', galleryImage.naturalHeight > galleryImage.naturalWidth);
+      galleryFrame.classList.toggle('is-landscape', galleryImage.naturalWidth >= galleryImage.naturalHeight);
+    };
     galleryImage.alt = item.alt;
     galleryIframe.removeAttribute('src');
+    galleryImage.src = item.src;
+    if (galleryImage.complete) galleryImage.onload();
   } else {
     galleryIframe.src = item.src;
     galleryImage.removeAttribute('src');
+    galleryFrame.classList.remove('is-portrait', 'is-landscape');
   }
   galleryCount.textContent = `${String(galleryState.index + 1).padStart(2, '0')} / ${String(galleryState.items.length).padStart(2, '0')}`;
   galleryCaption.textContent = item.alt;
